@@ -341,6 +341,8 @@ Já o comando `git diff` mostra exatamente quais linhas foram modificadas — ta
 git diff
 ```
 
+Apertando a tecla "q" sai da tela do `git diff` e "h" apresenta a tela de ajuda.
+
 Para arquivos que já estão no estado **staged**, é necessário adicionar o `--staged` ao final do comando.
 
 ```bash
@@ -384,6 +386,8 @@ git restore --staged file-name.ext
 ```
 
 `git log` apresenta um histórico de todos os commits que foram feitos no repositório.
+
+Apertando a tecla "q" sai da tela do `git log` e "h" apresenta a tela de ajuda.
 
 Para reverter um commit é necessário saber seu id e usar o seguinte comando:
 
