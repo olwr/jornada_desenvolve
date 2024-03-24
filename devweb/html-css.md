@@ -6,6 +6,7 @@
     - [Textos](#textos)
     - [Separação de Conteúdo e Tags Descritivas](#separação-de-conteúdo-e-tags-descritivas)
     - [Outros Elementos Importantes](#outros-elementos-importantes)
+    - [Data-attributes](#data-attributes)
   - [CSS](#css)
     - [Box Model](#box-model)
       - [Box Sizing](#box-sizing)
@@ -137,6 +138,83 @@ Podem ser usadas para melhorar a leitura do código e ajudar com o SEO e acessib
 <select> <!-- control menu with options --> </select>
 <option value=""> <!-- option item in select, optgroup or datalist --> </option>
 <canvas></canvas>
+```
+
+### Data-attributes
+
+É utilizado para guardar dados privados personalizados para a página ou aplicativo; dá a capacidade de incorporar dados personalizados para qualquer elemento HTML. Os dados guardados podem ser manipulados através do CSS, para estilizar o elemento, e JavaScript, para criar uma experiência de usuário mais engajada.
+
+Não deve ser atribuído em dados visíveis, pois tecnologias de acessibilidade podem não identificar seus valores. Dados personalizados com o prefixo `data-` serão completamente ignorados por agentes de usuário.
+
+Sua estrutura é dividida em:
+
+- Primeira parte é o identificador deste dado, que consiste em `data-` + o nome de sua escolha que melhor identifica o tipo de dado a ser atribuído
+- Segunda parte é o valor atribuído à este dado, o valor deve sempre estar entre aspas "" e dessa maneira é lido como `string`
+
+```html
+<h1>Paint list:</h1>
+<ul id="list">
+  <li
+    data-color="orange"
+    data-type="exterior-paint"
+    onclick="changeColors(this)"
+    class="item"
+  >
+    Orange paint
+  </li>
+  <li
+    data-color="white"
+    data-type="interior-paint"
+    onclick="changeColors(this)"
+    class="item"
+  >
+    White paint
+  </li>
+  <li
+    data-color="pink"
+    data-type="exterior-paint"
+    onclick="changeColors(this)"
+    class="item"
+  >
+    Pink paint
+  </li>
+</ul>
+
+<script>
+  function changeColors(elements) {
+    var colors = elements.getAttribute("data-color");
+    var elementType = elements.getAttribute("data-type");
+  }
+</script>
+```
+
+O prefixo `data-` não é obrigatório para definir um `data-attribute`, pode-se alterar o código para a seguinte forma:
+
+```html
+<h1>Paint list:</h1>
+<ul id="list">
+  <li
+    cor="orange"
+    tipo="exterior-paint"
+    onclick="changeColors(this)"
+    class="item"
+  >
+    Orange paint
+  </li>
+  <li cor="white" tipo="interior-paint" onclick="changeColors(this)" class="item">
+    White paint
+  </li>
+  <li cor="pink" tipo="exterior-paint" onclick="changeColors(this)" class="item">
+    Pink paint
+  </li>
+</ul>
+
+<script>
+  function changeColors(elements) {
+    var colors = elements.getAttribute("color");
+    var elementType = elements.getAttribute("type");
+  }
+</script>
 ```
 
 ## CSS
@@ -291,9 +369,9 @@ Prover um fallback é simples, pode só usar uma propriedade compatível acima d
 
 Usado para representar o design e layout dentro de CSS, o box model é essencialmente uma caixa que envolve todo elemento HTML. Consiste em: conteúdo, preenchimento, borda e margem.
 
-![alt text](imgs/css-box-model.png)
+![alt text](imgs/front/css-box-model.png)
 
-![alt text](imgs/box-model.png)
+![alt text](imgs/front/box-model.png)
 
 **Conteúdo ↓**
 
@@ -414,7 +492,7 @@ Total element height = height + top padding + bottom padding + top border + bott
 
 > A margem também afeta o espaço total em que a caixa vai ocupar, mas não é incluído no cálculo do tamanho total dela. Seu tamanho total para largura e altura para na borda. 
 
-![alt text](imgs/box-sizing-css.webp)
+![alt text](imgs/front/box-sizing-css.webp)
 
 A propriedade `box-sizing` resolve esse problema, pois permite definir se preenchimentos e bordas vão ou não ser levados em consideração ao calcular a largura e altura de um elemento.
 
@@ -437,7 +515,7 @@ A propriedade `box-sizing` resolve esse problema, pois permite definir se preenc
 
 #### Exemplo Visual
 
-![alt text](imgs/css-display-contents-560x335.png)
+![alt text](imgs/front/css-display-contents-560x335.png)
 
 ```css
 .box {
@@ -469,19 +547,19 @@ A propriedade `box-sizing` resolve esse problema, pois permite definir se preenc
 
 Ambas as caixas, vermelha e azul, estão aninhadas dentro da caixa amarela. Se a caixa vermelha tiver uma margem maior que a azul, terá a aparência de ser menor.
 
-![alt text](imgs/margin.png)
+![alt text](imgs/front/margin.png)
 
 Se a margem da caixa azul aumentar, a distância entre sua borda e os elementos envolta também aumentará.
 
-![alt text](imgs/margin-2.png)
+![alt text](imgs/front/margin-2.png)
 
 Aqui a caixa vermelha tem mais preenchimento que a azul, fazendo com que ela apareça maior em comparação.
 
-![alt text](imgs/padding.png)
+![alt text](imgs/front/padding.png)
 
 Se o preenchimento da caixa azul aumentar, a distância entre o texto e a borda também aumentará.
 
-![alt text](imgs/padding-2.png)
+![alt text](imgs/front/padding-2.png)
 
 ```css
 .red-box {
@@ -499,7 +577,7 @@ Se o preenchimento da caixa azul aumentar, a distância entre o texto e a borda 
 }
 ```
 
-![alt text](imgs/negative-margin.png)
+![alt text](imgs/front/negative-margin.png)
 
 ```css
 .blue-box {
@@ -510,7 +588,7 @@ Se o preenchimento da caixa azul aumentar, a distância entre o texto e a borda 
 }
 ```
 
-![alt text](imgs/negative-margin-2.png)
+![alt text](imgs/front/negative-margin-2.png)
 
 ### Cores
 
@@ -758,7 +836,7 @@ Se não for especificado, a regra de @media selecionará todos os tipos de dispo
 
 Um breakpoint é uma chave para determinar o momento de mudar o layout e adaptá-lo às novas regras dentro das media queries. É o valor usado para a regra do condicional.
 
-![alt text](imgs/breakpoints.png)
+![alt text](imgs/front/breakpoints.png)
 
 ```css
 /* Extra small devices (phones, 600px and down) */
@@ -781,7 +859,7 @@ Um breakpoint é uma chave para determinar o momento de mudar o layout e adaptá
 
 É a propriedade que define como o conteúdo é exibido no layout.
 
-![alt text](imgs/display.png)
+![alt text](imgs/front/display.png)
 
 ```css
 display: none; /* disable the element exhibition, without affecting the layout. all the child elements are also disable, the document renders like the element doesn't exist */
@@ -819,11 +897,11 @@ Essas inconsistências que os navegadores apresentam no momento de exibir ou ren
 
 **Com Reset.css ↓**
 
-![alt text](imgs/w-reset-css.png)
+![alt text](imgs/front/w-reset-css.png)
 
 **Sem Reset.css ↓**
 
-![alt text](imgs/w_o-reset-css.png)
+![alt text](imgs/front/w_o-reset-css.png)
 
 ```css
 /* http://meyerweb.com/eric/tools/css/reset/ 
