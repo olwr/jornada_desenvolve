@@ -18,7 +18,7 @@
 
 - [x] Semana 1 e 2: HTML5 e CSS3
 - [x] Semana 3: Reponsividade com mobile-first e Git & GitHub
-- [ ] Semana 4: Lógica de programação com JavaScript e HTML
+- [x] Semana 4: Lógica de programação com JavaScript e HTML
 - [ ] Semana 5 e 6: JavaScript
 - [ ] Semana 7: Node.js
 - [ ] Semana 8: JavaScript & OOP e HTTP
