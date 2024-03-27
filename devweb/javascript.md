@@ -464,18 +464,17 @@ O JavaScript tem os seguintes operadores:
 
 - De comparação
 
-| operator | description                | examples    |
-| -------- | -------------------------- | ----------- |
-| ==       | equal to                   | `x == y`    |
-| ===      | equal in value and type    | `x === y`   |
-| !=       | not equal to               | `x != y`    |
-| !=       | not equal in value or type | `x !== y`   |
-| !==      | `x /= y`                   | `x = x / y` |
-| >        | greater than               | `x > y`     |
-| <        | less than                  | `x < y`     |
-| >=       | greater than or equal to   | `x >= y`    |
-| <=       | less than or equal to      | `x <= y`    |
-| ?        | ternary operator           |             |
+| operator | description                | examples  |
+| -------- | -------------------------- | --------- |
+| ==       | equal to                   | `x == y`  |
+| ===      | equal in value and type    | `x === y` |
+| !=       | not equal to               | `x != y`  |
+| !==      | not equal in value or type | `x !== y` |
+| >        | greater than               | `x > y`   |
+| <        | less than                  | `x < y`   |
+| >=       | greater than or equal to   | `x >= y`  |
+| <=       | less than or equal to      | `x <= y`  |
+| ?        | ternary operator           |           |
 
 - Ternário
 
@@ -1589,6 +1588,33 @@ Regras de sintaxe:
 
 Em sintaxe, é idêntico a criação de um objeto em JS. Por causa disso, um programa em JavaScript pode facilmente converter JSON em objetos JS nativos.
 
+**DataType ↓**
+
+Em JSON, os valores só são válidos se foram de um dos seguintes tipos de dados:
+
+- String
+- Number
+- Object
+  - Que contenha valores válidos
+- Array
+- Boolean
+- Null
+
+Os valores não podem ser:
+
+- Function
+- Date
+- Undefined
+
+**Métodos ↓**
+
+| method        | description                                          |
+| ------------- | ---------------------------------------------------- |
+| `parse()`     | parses a JSON string and returns a JavaScript object |
+| `stringify()` | convert a JavaScript object to a JSON string         |
+
+
+
 ## Desestruturação de Listas e Objetos
 
 Desestruturação em JavaScript é o ato de extrair elementos de um array ou objeto. Mas não só isso, permite também manipular e alterar os elementos extraídos dependendo do tipo de operação executada.
@@ -1723,6 +1749,106 @@ document.querySelectorAll("name[attr=val]")
 ```
 
 ## Tratamento de Erros
+
+Erros são inevitáveis em qualquer código, é sempre melhor tratá-los do que ignorá-los.
+
+**Try | Catch ↓**
+
+Essas declarações são o básico para os tratamentos de erros. A declaração `try` permite definir um bloco de código testará erros enquanto for executado, já `catch` permite definir um bloco que será executado caso o erro ocorra.
+
+```js
+try {
+  // block of code to try
+}
+catch(err) {
+  // block of code to handle errors
+}
+```
+
+```js
+try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+```
+
+**Throw ↓**
+
+Quando um erro ocorre, o JavaScript normalmente para e gera uma mensagem de erro. Na verdade, ele cria uma um `Error Object` com 2 propriedades: `name` e `message`.
+
+A declaração `throw` permite criar um erro customizado. Tecnicamente, seria jogar uma exceção/erro. Pode ser usado sozinho ou com `try` e `catch`.
+
+```js
+throw value;
+```
+
+```js
+throw 'Too big';
+throw 500;
+```
+
+```js
+{
+  // ...
+  try {
+    if(x.trim() == "") throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x < 5) throw "too low";
+    if(x > 10) throw "too high";
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+}
+```
+
+**Finally ↓**
+
+A declaração `finally` permite executar um código, depois de `try` e `catch`, independente do resultado.
+
+```js
+try {
+  // block of code to try
+}
+catch(err) {
+  // block of code to handle errors
+}
+finally {
+  // block of code to be executed regardless of the try / catch result
+}
+```
+
+```js
+{
+// ...
+  try {
+    if(x.trim() == "") throw "is empty";
+    if(isNaN(x)) throw "is not a number";
+    x = Number(x);
+    if(x > 10) throw "is too high";
+    if(x < 5) throw "is too low";
+  }
+  catch(err) {
+    message.innerHTML = "Error: " + err + ".";
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+}
+```
+
+**O Objeto Error ↓**
+
+| name             | description                            |
+| ---------------- | -------------------------------------- |
+| `RangeError`     | a number "out of range" has occurred   |
+| `ReferenceError` | an illegal reference has occurred      |
+| `SyntaxError`    | a syntax error has occurred            |
+| `TypeError`      | a type error has occurred              |
+| `URIError`       | an error in `encodeURI()` has occurred |
 
 ## Melhores Práticas
 
