@@ -21,10 +21,11 @@
 - [x] Semana 3: Reponsividade com mobile-first e Git & GitHub
 - [x] Semana 4: Lógica de programação com JavaScript e HTML
 - [x] Semana 5 e 6: JavaScript
-- [ ] Semana 7: Node.js
+- [x] Semana 7: Node.js
 - [ ] Semana 8: JavaScript & OOP e HTTP
 
 ### Projetos
 
 - [x] Portfólio → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-portfolio)
 - [x] AluraBooks → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-alurabooks)
+- [x] Validando Links → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-node-lib)
