@@ -2,6 +2,11 @@
 
 - [Node.js](#nodejs)
   - [O que é?](#o-que-é)
+    - [NVM](#nvm)
+  - [NPM e YARN](#npm-e-yarn)
+  - [Package.json](#packagejson)
+    - [Propriedades Básicas](#propriedades-básicas)
+      - [Versões](#versões)
   - [Arquitetura Baseada em Eventos](#arquitetura-baseada-em-eventos)
     - [Event Emitters e Listeners](#event-emitters-e-listeners)
     - [Componentes: Processos e Threads](#componentes-processos-e-threads)
@@ -9,6 +14,8 @@
     - [Funcionamento: Call Stack, Task Queue e Loop](#funcionamento-call-stack-task-queue-e-loop)
     - [Loop de Eventos](#loop-de-eventos)
   - [Erros](#erros)
+  - [Promessas](#promessas)
+    - [Como Usar](#como-usar)
 
 ## O que é?
 
@@ -38,6 +45,350 @@ Outros interpretadores que estão chamando a atenção são: Deno, do mesmo dese
 
 - Multi-paradigma: 
   - Com o JavaScript se pode adotar várias formas de codificar usando paradigmas como a orientação a objetos, o funcional e o orientado a eventos
+
+### NVM
+
+Como o Node trabalha com atualizações consistentes, há grandes diferenças entre suas versões. Por exemplo, algo que pode ser feito na versão 18, pode não ser possível na versão 16.
+
+Quando se trabalha com o Node, alterar entre versões pode ser um obstáculo, mas existem duas formas de facilitar esse processo, o Node Version Manager (NVM) e o Docker.
+
+O NVM é um gerenciador de versões do Node.JS, responsável por gerenciar as versões instaladas na máquina de desenvolvimento, bem como instalar novas versões. Foi criado como “instalado por usuário e invocado por shell”, ou seja, funciona de forma total no terminal do sistema.
+
+Instalação: 
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+```bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+O comando `nvm ls-remote` lista todas as ver~soe s do Node.JS, e para fazer download de uma ver~so específica é só usar o comando `nvm instal`. O comando `nvm use` é o que altera entre as versões de forma simples.
+
+```bash
+$ nvm use 16
+Now using node v16.9.1 (npm v7.21.1)
+$ node -v
+v16.9.1
+$ nvm use 14
+Now using node v14.18.0 (npm v6.14.15)
+$ node -v
+v14.18.0
+$ nvm install 12
+Now using node v12.22.6 (npm v6.14.5)
+$ node -v
+v12.22.6
+```
+
+**Por que não o Docker?**
+
+Com o Docker seria necessário executar um container para cada versão diferente do Node.JS, fora o tamanho das imagens de downloads necessários que seriam armazenados na máquina.
+
+## NPM e YARN
+
+Ambos são gerenciadores de pacotes, sendo que NPM é acrônimo de Node Package Manager. Gerenciadores de pacotes são repositórios de código aberto nos quais devs disponibilizam soluções para o uso da comunidade. 
+
+O NPM e o YARN têm algumas pequenas diferenças nos comandos e na forma como lidam com os pacotes.
+
+Eles nada mais são do que programas que outros desenvolvem e podem ser usados para ganhar tempo no desenvolvimento do código, e vão desde libs pequenas e específicas até frameworks com vários recursos prontos.
+
+Um pacote é como o conjunto do código dessas libs e frameworks são chamados.
+
+**Instalação Local vs. Global ↓**
+
+Esses pacotes podem ser instalados localmente, estando disponíveis somente para o projeto no qual foi instalado através da pasta `node_modules`, e globalmente, sendo instalados em um diretório geral do NPM e ficando disponíveis para todos os projetos no computador, sem a necessidade de instalar separadamente em cada projeto.
+
+Na maioria dos casos, a opção local faz mais sentido, sendo instaladas com os comandos `npm install` ou `yarn add`, pois facilita o gerenciamento de versão das libs e geralmente, um pacote instalado “puxa” um ou vários outros pacotes auxiliares que ele precisa para funcionar. 
+
+O ideal é não poluir o diretório global com libs que poderão ser utilizadas em somente um projeto. No entanto, algumas libs e frameworks mais complexas vão solicitar que a instalação seja feita globalmente para funcionar.
+
+Sempre vale a pena consultar a documentação de cada uma. Para fazer uma instalação global de pacotes, utilizamos os comandos `npm install -g` ou `yarn add global`.
+
+A recomendação é preferir a instalação local, usar a global só me casos específicos.
+
+## Package.json
+
+O `package.json` é um elemento-chave em muitas aplicações do ecossistema Node.js. Ele serve como uma espécie de manifesto do projeto, podendo fazer várias coisas, complemente não relacionadas.
+
+Ele é, por exemplo, um repositório central de configurações de ferramentas. Também armazena os nomes e versões dos pacotes instalados.
+
+**Estrutura ↓**
+
+Não existem exigências fixas do que se deve ter em um arquivo `package.json`, somente que respeite o formato JSON. Ou seja, segue a sintaxe e só pode receber os valores válidos de JSON.
+
+```json
+{
+    "name": "test-project",
+    "version": "1.0.0",
+    "description": "A Node.js project",
+    "main": "src/index.js",
+    "private": true,
+    "scripts": {
+        "dev": "nodemon ./src/index",
+        "start": "node ./src/index",
+        "test": "jest",
+        "compile": "tsc"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "joi": "^17.3.0",
+        "pg": "^8.5.1",
+        "sequelize": "^6.4.0",
+        "uuid": "^8.3.2",
+        "winston": "^3.3.3"
+    },
+    "devDependencies": {
+        "jest": "^26.6.3",
+        "nock": "^13.0.5",
+        "nodemon": "^2.0.6",
+        "sequelize-mock-v5": "^1.2.0"
+    },
+    "engines": {
+        "node": ">= 6.0.0",
+        "npm": ">= 3.0.0"
+    }
+}
+```
+
+Existem muitas coisas acontecendo aqui:
+
+- `name` define o nome da aplicação ou pacote;
+- `version` indica a versão atual;
+- `description` é um resumo da aplicação/pacote;
+- `main` define o ponto de entrada da aplicação (o que vai ser retornado se alguém der um `require` no pacote);
+- `private` (true) previne a aplicação de ser publicada acidentalmente no npm;
+- `scripts` define um conjunto de scripts Node para serem executados;
+- `dependencies` define uma lista de pacotes npm instalados como dependências de produção;
+- `devDependencies` define uma lista de pacotes npm instalados como dependências de desenvolvimento;
+- `engines` define quais versões de Node este pacote/aplicação funciona;
+
+### Propriedades Básicas
+
+**Identificando Metadados ↓**
+
+- `name`
+  - define o nome do pacote
+  - deve ser menor que 214 caracteres, não pode ter espaços e somente pode conter letras minúsculas, hífens (-) ou underscore (_)
+  - caso o pacote seja publicado, ele ganha sua URL baseado nesta propriedade
+
+```json
+"name": "test-project"
+```
+
+- `author`
+  -  exibe o nome do autor do pacote
+
+```json
+{ "author": "Oliwer <contato@oliwer.com.br> (www.site.com.br)" }
+```
+
+```json
+{
+    "author": {
+        "name": "Oliwer",
+        "email": "contato@oliwer.com.br",
+        "url": "www.site.com.br"
+    }
+}
+```
+
+- `contributors`
+  - o projeto pode ter um ou mais contribuidores
+  - como o autor, é um array ou lista
+
+```json
+{ "contributors": "Oliwer <contato@oliwer.com.br> (www.site.com.br)" }
+```
+
+```json
+{
+    "contributors": {
+        "name": "Oliwer",
+        "email": "contato@oliwer.com.br",
+        "url": "www.site.com.br"
+    }
+}
+```
+
+- `bug`
+  - links para o issue tracker do pacote, geralmente uma página de issues no GitHub
+
+```json
+{
+  "bugs": "github.com/oliwer/package/issues"
+}
+```
+
+- `version`
+  - indica a versão atual do pacote
+  - segue a notação semântica de versionamento (semver), o que significa que a versão é sempre expressada com três números: x.x.x.
+
+```json
+"version": "1.0.0"
+```
+
+- `license`
+  - indica a licença do pacote
+
+```json
+"license": "MIT"
+```
+
+- `description`
+  - contém um resumo/descrição do pacote
+  - especialmente útil se o pacote for publicado/compartilhado
+
+```json
+"description": "A package to work with strings"
+```
+
+- `keywords`
+  - esta propriedade contém um array de palavras-chave associados com o que pacote faz
+
+```json
+"keywords": [
+  "email",
+  "automation",
+  "ai"
+]
+```
+
+**Metadados Funcionas ↓**
+
+- `main`
+  - define o ponto de entrada do pacote
+  - quando o pacote é importado, é essa aplicação que será buscada pelo `module.exports`
+
+```json
+"main": "src/main.js"
+```
+
+- `private`
+  - se definido como `true`, previne que a aplicação/pacote seja acidentalmente publicada
+
+```json
+"private": true
+```
+
+- `repository`
+  - especifica onde o repositório do pacote está localizado
+  - tipicamente aparece em projetos open source, é um array com o tipo do controle de versão e a url do repositório em si
+  - importante dizer que é a url completa do controle de versão, não só de onde o repo pode ser acessado
+
+```json
+ "repository": { 
+  "type": "git", 
+  "url": "github.com/teste/testing.git" 
+} 
+```
+
+- `script`
+  - define um conjunto de scripts node que podem ser executados
+  - são frequentemente usados para testar, build e streamline de comandos necessários pra trabalhar com o módulo
+
+```json
+"scripts": {
+  "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+  "start": "npm run dev",
+  "unit": "jest --config test/unit/jest.conf.js --coverage",
+  "test": "npm run unit",
+  "lint": "eslint --ext .js,.vue src test/unit",
+  "build": "node build/build.js"
+}
+```
+
+```bash
+npm run dev
+```
+
+- `dependencies`
+  - define uma lista de pacotes npm instalados como dependências
+  - quando um pacote é instalado com `npm`, ele é automaticamente inserido na lista
+
+```bash
+npm install &lt;PACKAGENAME&gt;
+```
+
+```json
+"dependencies": {
+  "vue": "^2.5.2"
+}
+```
+
+```json
+"dependencies": { 
+    "async": "^0.2.10", 
+   "npm2es": "~0.4.2", 
+   "optimist": "~0.6.0", 
+   "request": "~2.30.0",
+   "skateboard": "^1.5.1",
+   "split": "^0.3.0",
+   "weld": "^0.2.2"
+}
+```
+
+- `devdependencies`
+  - define uma lista de pacotes npm instalados como dependências de desenvolvimento
+  - se diferem de dependencies porque eles serão instalados somente em máquinas de desenvolvimento
+  - não são necessárias para executar o código em produção
+
+```bash
+npm install --dev &lt;PACKAGENAME&gt;
+```
+
+```json
+"devDependencies": {
+  "autoprefixer": "^7.1.2",
+  "babel-core": "^6.22.1"
+}
+```
+
+```json
+"devDependencies": {
+   "escape-html": "^1.0.3", 
+   "lucene-query-parser": "^1.0.1" 
+}
+```
+
+#### Versões
+
+É expressada em 3 números, `x.x.x`. O primeiro número é a versão principal, o segundo é a versão secundária e o terceiro é a versão do patch. 
+
+Existe um significado nestes números: 
+
+- uma release que somente corrija bugs é uma release patch
+- uma release que introduza mudanças na compatibilidade retroativa é uma release secundária
+- uma release principal é aquela que pode quebrar compatibilidade.
+
+![alt text](imgs/back/wheelbarrel-with-tilde-caret-white-bg-w1000-768x594.jpg)
+
+É muito comum que aparecem símbolos juntos da versões, como o circunflexo `^` e o til `~`.
+
+- O til garante que o pacote seja sempre carregado  respeitando o número do meio da versão
+  - geralmente garante que correções de bugs sejam atualizados no pacote
+
+```json
+"version": "~1.2.3" // pega o pacote mais recente da versão 1.2.x, mas não vai atualizar para 1.3
+```
+
+- O circunflexo garante que o pacote seja sempre carregado respeitando o primeiro número da versão
+  - garante que bugs e novas funcionalidades do seu pacote sejam atualizados, mas não novas versões “major” dele
+
+```json
+"version": "^1.2.3" //  pega o pacote mais recente da versão 1.x, mas não vai atualizar para 2.0
+```
+
+Outros símbolos incluem:
+
+- `>`, `>=`, `<`, `<=` 1.0: a versão deve ser superior, superior ou igual, inferior, inferior ou igual à 1.0, respectivamente
+- 1.2.x: equivalente a `˜1.2.0`
+- `*`: qualquer versão do pacote
+- `latest`: a versão mais recente do pacote
 
 ## Arquitetura Baseada em Eventos
 
@@ -309,3 +660,157 @@ Claro que sempre haverá outras situações similares, que envolvem normalmente 
 
 > referência para anotações futuras
 > https://www.alura.com.br/artigos/lidando-com-erros-node-js?_gl=1*t7hpaa*_ga*MjgwODEyMDg2LjE3MDI4MzkzNjQ.*_ga_1EPWSW3PCS*MTcxMDQ1MDE5MS4yNzQuMS4xNzEwNDUyMjIyLjAuMC4w*_fplc*Z1lQUldiMFQ2T1ZoN1c4a1pSTWxDQ1dwaVhkZDd0JTJCVDdjMVdxdHRaczVFOXFuRzdDbEdua0JwZWNXVkhJWWpFMWVqUSUyRlFFaGtmajlDb0slMkZwVlhHd0M5RyUyQm1kZHdBJTJCU3gxS2tJTjNuV3NWZUhKMnVLeUJNajZPdDNJJTJCbjNnJTNEJTNE
+
+## Promessas
+
+Código síncrono é executado em sequência, uma instrução após a outra; código assíncrono não espera a finalização de uma tarefa para iniciar a seguinte, aguarda a finalização da tarefa para retornar o resultado.
+
+É chamado de programação assíncrona o ato de executar uma tarefa em segundo plano, sem controle direto do programador. Sem explicitamente trabalhar com threads e coordená-las.
+
+![alt text](imgs/back/asyn-vs-sync.png)
+
+É importante realçar o comportamento do JS de executar uma coisa por vez; ele irá separar o código em duas partes: coisas que rodam agora, coisas que vão rodar depois de algo acontecer.
+
+Quando uma função assíncrona é chamada, ela retorna uma `Promise`. O sentido de Promise em JavaScript é similar ao literal, ou seja, a promessa de que quando uma ação for executada, irá retornar algo, o que nem sempre é cumprido.
+
+Se ela retorna um valor, a `Promise` será resolvida com o valor retornado; se ela lança uma exceção ou algum valor, a `Promise` será rejeitada com o valor lançado.
+
+Por exemplo, quando enviar uma requisição de dados a uma API, se tem uma promessa de que estes dados irão chegar, mas enquanto isso não acontece, o sistema deve continuar rodando. Se o servidor estiver caído, essa promessa de dados pode não se cumprir, e deve se que lidar com isso.
+
+É possível escrever promessas do zero com o construtor `Promise()`.
+
+![alt text](imgs/back/asyn-vs-sync2.png)
+
+**Estados de uma Promessa ↓**
+
+- Podem ser concluídas de duas formas: fulfilled ou rejected, o que equivale a duas situações possíveis, ou a promessa se concretizou (retornou os dados ou executou o código que deveria) ou não
+- Promessas que não estão fulfilled nem rejected estão pending. Ou seja, ainda não é possível saber o resultado final porque o processamento ainda não foi concluído.
+- Após a finalização do processamento, a promessa passa para o estado de settled, independente do resultado.
+- Uma vez que a promessa está settled seu resultado não se altera mais. Ou seja, uma promessa que se concluiu como rejected não muda mais para o estado de fulfilled e vice-versa.
+
+| state       | result          |
+| ----------- | --------------- |
+| `pending`   | undefined       |
+| `fulfilled` | a result value  |
+| `rejected`  | an error object |
+
+![alt text](imgs/back/promises-states.png)
+
+### Como Usar
+
+Existem algumas formas de se trabalhar com processamento assíncrono em JavaScript: utilizando o método `.then()`, as palavras-chave `async` e `await` ou o objeto `Promise` e seus métodos.
+
+**Then ↓**
+
+É um método que recebe uma função callback e retorna um "objeto-promessa". Não é um retorno dos dados, é a promessa do retorno destes dados.
+
+```js
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);
+
+/* ... */
+
+promise.then(fulfilled(), rejected())
+```
+
+Dessa forma, se pode escrever o código do que irá acontecer em seguida, com os dados recebidos pela `Promise`, e o JavaScript vai aguardar a resolução da `Promise` sem pausar o fluxo do programa.
+
+```js
+function fetchFile(path) {
+    const encoding = 'utf-8';
+    fs.promises
+        .readFile(path, encoding)
+        .then((text) => console.log(text)
+        .catch((errorHandling))
+};
+```
+
+O resultado pode ou não estar pronto ainda, e não há forma de pegar o valor de uma `Promise` de modo síncrono; Só é possível requisitar à `Promise` que execute uma função quando o resultado estiver disponível.
+
+![alt text](imgs/back/promises.png)
+
+Uma cadeia de funções não significa que há múltiplas funções callbacks sendo usadas com o mesmo objeto de resposta, e sim que cada instância de `.then()` retorna, por sua vez, um `new Promise()`. 
+
+Toda a cadeia é lida de forma síncrona na primeira execução, e em seguida executada de forma assíncrona.
+
+Não há como utilizar o `try/catch` quando se o `.then()`, pois a computação só será efetuada após o retorno do objeto-Promise. Então se deve passar funções que executem as alternativas, para o caso de sucesso ou falha da operação.
+
+O método `.catch()` retorna no caso de rejeição. Além disso, o último método, .`finally()`, é chamado independente de sucesso ou falha da promessa e a função callback deste método é sempre executada por último.
+
+O finally pode ser usado, por exemplo, para fechar uma conexão ou dar algum aviso de fim de carregamento.
+
+**Async | Await ↓**
+
+Introduzidas a partir do ES2017, são uma sintaxe que simplifica a programação assíncrona, facilitando o fluxo de escrita e leitura do código; assim é possível escrever código que funciona de forma assíncrona, porém é lido e estruturado de forma síncrona.
+
+Também trabalham com promessas, porém escondem as promessas para que a leitura e a escrita seja mais fluídas.
+
+O `async` define uma função como assíncrona.
+
+```js
+async function nome([param[, param[, ... param]]]) {
+   // code here
+}
+```
+
+Uma função assíncrona pode conter uma expressão `await`, que pausa a execução da função assíncrona e espera pela resolução da `Promise` passada, e depois retoma a execução da função assíncrona e retorna o valor resolvido.
+
+Só é possível usar `await` em funções declaradas com a palavra-chave `async`. Uma função declarada como `async` significa que o valor de retorno da função será, "por baixo dos panos", uma `Promise`. 
+
+Se a `Promise` se resolver normalmente, o objeto-Promise retornará o valor. Caso lance uma exceção, é possível usar o try/catch da mesma forma que em programas síncronos.
+
+```js
+async function fetchFile(path) {
+    try {
+        const encoding = 'utf-8';
+        const text = await fs.promises.readFile(path, encoding);
+        console.log(linksExtraction(text))
+    } catch (err) {
+        errorHandling(err)
+    } finally {
+        console.log('operation completed');
+    }
+};
+```
+
+**Promise.all ↓**
+
+No caso que é necessário resolver várias promessas, pode-se utilizar o `Promise.all`:
+
+```js
+const endpoints = [
+ "https://api.com/api/user/1",
+ "https://api.com/api/user/2",
+ "https://api.com/api/user/3",
+ "https://api.com/api/user/4"
+]
+
+const promises = endpoints.map(url => fetch(url).then(res => res.json()))
+
+Promise.all(promises)
+ .then(body => console.log(body.name))
+```
+
+É possível usar também em conjunto com o `async/await`:
+
+```js
+async function getUser(userId) {
+ let response = await fetch(`https://api.com/api/user/${userId}`);
+ let userData = await response.json();
+ return userData;
+}
+
+let [user1, user2] = await Promise.all([getUser(1), getUser(2)])
+```
+
+**Há Diferenças?**
+
+Em termos de sintaxe, o método `.then()` traz uma sintaxe que faz mais sentido para o JavaScript de forma funcional, enquanto o fluxo das declarações com `async/await` fazem sentido ao serem utilizadas em métodos de classes.
+
+O `async/await` surgiu como uma opção mais "legível" ao `.then()`, e é possível usar os dois métodos em um mesmo código; além disso, a partir da versão 10 do Node.js, ambas as formas são equivalentes em termos de performance. 
+
+O `async/await` simplifica a escrita e a interpretação do código, mas não é tão flexível e só funciona com uma `Promise` por vez.
+
+Caso seja necessário, é possível usar o `Promise.all` com os dois.

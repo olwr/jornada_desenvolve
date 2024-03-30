@@ -144,16 +144,6 @@ moduleName.resourceName();
 
 Haverão momentos onde será desejados ou necessário agregar módulos. 
 
-### Aplicando ao HTML
-
-É muito semelhante ao modo de aplicação de um script regular a uma página, com algumas diferenças.
-
-```html
-<script type='module' src='file.js'></script>
-```
-
-O script onde foi importado os recursos do módulo atua basicamente como o módulo de nível superior. Se  for omitido, o Firefox, por exemplo, exibirá um erro `"SyntaxError: as declarações de importação podem aparecer apenas no nível superior de um módulo"`.
-
 Os `import` e `export` só podem ser usados em módulos, não scripts regulares. É possível ter vários níveis de dependências, nos quais deseja simplificar as coisas, combinando vários submódulos em um módulo pai.
 
 ```
@@ -185,6 +175,16 @@ Por fim, é só obter acesso aos recursos dos módulos com o import único do m�
 ```js
 import {resourceName, resourceName, resourceName, ...} from './individual-modules/file.js'
 ```
+
+### Aplicando ao HTML
+
+É muito semelhante ao modo de aplicação de um script regular a uma página, com algumas diferenças.
+
+```html
+<script type='module' src='file.js'></script>
+```
+
+O script onde foi importado os recursos do módulo atua basicamente como o módulo de nível superior. Se for omitido, o Firefox, por exemplo, exibirá um erro `"SyntaxError: as declarações de importação podem aparecer apenas no nível superior de um módulo"`.
 
 ## Diferenças Entre Módulos e Scripts
 
