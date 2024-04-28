@@ -22,10 +22,18 @@
 - [x] Semana 4: Lógica de programação com JavaScript e HTML
 - [x] Semana 5 e 6: JavaScript
 - [x] Semana 7: Node.js
-- [ ] Semana 8: JavaScript & OOP e HTTP
+- [x] Semana 8: JavaScript & OOP e HTTP
+- [ ] Semana 9: JavaScript Para Web e DOM
+- [ ] Semana 10: JavaScript localStorage e API
+- [ ] Semana 11: JavaScript Métodos de array e requisições
+- [ ] Semana 12: JavaScript e validação de formulários
+- [ ] Semana 13: Figma
+- [ ] Semana 14: Design System
+- [ ] Semana 15: PostgreSQL
 
 ### Projetos
 
 - [x] Portfólio → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-portfolio)
 - [x] AluraBooks → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-alurabooks)
 - [x] Validando Links → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-node-lib)
+- [x] Projeto Prático: AMber → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fake-store)
