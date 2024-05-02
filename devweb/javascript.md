@@ -24,7 +24,6 @@
     - [Getters e Setters](#getters-e-setters)
     - [JSON](#json)
   - [Desestruturação de Listas e Objetos](#desestruturação-de-listas-e-objetos)
-  - [DOM](#dom)
   - [Tratamento de Erros](#tratamento-de-erros)
   - [Melhores Práticas](#melhores-práticas)
 
@@ -1716,36 +1715,6 @@ const languages = {
 
 const { frontend: courseOne, backend: courseTwo } = languages;
 console.log(courseOne, courseTwo); // "React", "Node"
-```
-
-## DOM
-
-Document Object Model (DOM), é o documento HTML transformado em objeto para ser manipulado pelo JavaScript. o DOM modifica dinamicamente a estrutura do HTML, sem precisar atualiza-lo, pode:
-
-- Adicionar | modificar | remover
-  - tags
-  - textos
-  - imagens
-  - qualquer outro elemento
-- Alterar estilos CSS
-- Criar novos eventos
-- Modificar | receber | mandar valores
-
-![alt text](imgs/back/pic_htmltree.gif)
-
-O termo “documento” é frequentemente utilizado em referências à página, documento e página são sinônimos.
-
-```js
-// selects an element by their id
-document.getElementById(#id)
-// selects an element by their class name
-document.getElementByClassName(.class)
-// selects an element by their name
-document.getElementByTagName(name) 
-// selects the first element by their id, class or name
-document.querySelector("name")
-// selects all the elements by their id, class or name
-document.querySelectorAll("name[attr=val]")
 ```
 
 ## Tratamento de Erros
