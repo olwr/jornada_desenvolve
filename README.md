@@ -37,3 +37,4 @@
 - [x] AluraBooks → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-alurabooks)
 - [x] Validando Links → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-node-lib)
 - [x] Projeto Prático: AMber → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fake-store)
+- [x] Fokus → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fokus)
