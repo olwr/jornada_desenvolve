@@ -18,18 +18,23 @@
 ## <picture><source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f331/512.webp" type="image/webp"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f331/512.gif" alt="🌱" width="32" height="32"></picture> Trilha DevWeb
 
 - [x] Semana 1 e 2: HTML5 e CSS3
-- [x] Semana 3: Reponsividade com mobile-first e Git & GitHub
+- [x] Semana 3: Responsividade com mobile-first e Git & GitHub
 - [x] Semana 4: Lógica de programação com JavaScript e HTML
 - [x] Semana 5 e 6: JavaScript
 - [x] Semana 7: Node.js
 - [x] Semana 8: JavaScript & OOP e HTTP
-- [ ] Semana 9: JavaScript Para Web e DOM
-- [ ] Semana 10: JavaScript localStorage e API
-- [ ] Semana 11: JavaScript Métodos de array e requisições
+- [x] Semana 9: JavaScript para Web e DOM
+- [x] Semana 10: JavaScript localStorage e API
+- [ ] Semana 11: JavaScript métodos de array e requisições
 - [ ] Semana 12: JavaScript e validação de formulários
 - [ ] Semana 13: Figma
 - [ ] Semana 14: Design System
-- [ ] Semana 15: PostgreSQL
+- [ ] Semana 15: PostgreSQL consultas, views e funções
+- [ ] Semana 16: PostgreSQL comandos DML/DDL e MongoDB 
+- [ ] Semana 17: Node.js API Rest com Express e MongoDB
+- [ ] Semana 18: Node.js testes unitários, de integração e em uma API Rest
+- [ ] Semana 19: Node.js criptografia, tokens JWT e criando uma API Rest
+- [ ] Semana 20: Integração e entrega contínua
 
 ### Projetos
 
@@ -38,3 +43,4 @@
 - [x] Validando Links → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-node-lib)
 - [x] Projeto Prático: AMber → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fake-store)
 - [x] Fokus → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fokus)
+- [x] Vidflow → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-vidflow)

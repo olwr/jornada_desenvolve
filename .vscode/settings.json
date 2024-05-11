@@ -1,7 +1,11 @@
 {
     "cSpell.words": [
+        "afterbegin",
+        "afterend",
         "altair",
         "anne",
+        "beforebegin",
+        "beforeend",
         "bytecodes",
         "concant",
         "concat",
@@ -20,6 +24,7 @@
         "linkando",
         "Liskov",
         "microtasks",
+        "mockando",
         "multiparadigma",
         "nexttick",
         "pablo",
