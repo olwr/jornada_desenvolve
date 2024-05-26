@@ -4,7 +4,7 @@
   - [O Que é uma API?](#o-que-é-uma-api)
     - [Tipos de APIs - Escopos](#tipos-de-apis---escopos)
     - [Tipos de APIs - Arquiteturas e Protocolos](#tipos-de-apis---arquiteturas-e-protocolos)
-  - [Mock](#mock)
+  - [Mockar](#mockar)
 
 ## O Que é uma API?
 
@@ -137,7 +137,7 @@ Performance também pode sofrer se há muitos campos aninhados em uma única req
 
 Tudo isso o torna difícil de usar sem muito treinamento ou experiência.
 
-## Mock
+## Mockar
 
 É comum que APIs REST sejam consumidas em front-ends, eventualmente pode ser necessário desenvolver o front antes ou em paralelo com o back. Quando isso acontece, é preciso simular de alguma forma os dados enviados pelo back, ou seja, trabalhar com mocks ou, como se diz, "mockando" o backend.
 

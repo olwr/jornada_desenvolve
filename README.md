@@ -25,8 +25,8 @@
 - [x] Semana 8: JavaScript & OOP e HTTP
 - [x] Semana 9: JavaScript para Web e DOM
 - [x] Semana 10: JavaScript localStorage e API
-- [ ] Semana 11: JavaScript métodos de array e requisições
-- [ ] Semana 12: JavaScript e validação de formulários
+- [x] Semana 11: JavaScript métodos de array e requisições
+- [x] Semana 12: JavaScript e validação de formulários
 - [ ] Semana 13: Figma
 - [ ] Semana 14: Design System
 - [ ] Semana 15: PostgreSQL consultas, views e funções
@@ -44,3 +44,4 @@
 - [x] Projeto Prático: AMber → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fake-store)
 - [x] Fokus → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fokus)
 - [x] Vidflow → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-vidflow)
+- [x] MoniBank → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-monibank)
