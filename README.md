@@ -27,14 +27,18 @@
 - [x] Semana 10: JavaScript localStorage e API
 - [x] Semana 11: JavaScript métodos de array e requisições
 - [x] Semana 12: JavaScript e validação de formulários
-- [ ] Semana 13: Figma
-- [ ] Semana 14: Design System
+- [x] Semana 13: Figma
+- [x] Semana 14: Design System
 - [ ] Semana 15: PostgreSQL consultas, views e funções
 - [ ] Semana 16: PostgreSQL comandos DML/DDL e MongoDB 
 - [ ] Semana 17: Node.js API Rest com Express e MongoDB
 - [ ] Semana 18: Node.js testes unitários, de integração e em uma API Rest
 - [ ] Semana 19: Node.js criptografia, tokens JWT e criando uma API Rest
 - [ ] Semana 20: Integração e entrega contínua
+- [ ] Semana 21: Docker e autenticação
+- [ ] Semana 22: Microsserviços
+- [ ] Semana 23: Integração contínua - testes e pipeline no Github Actions
+- [ ] Semana 24: LGPD
 
 ### Projetos
 

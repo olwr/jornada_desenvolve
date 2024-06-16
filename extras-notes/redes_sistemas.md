@@ -36,7 +36,7 @@ Uma rede de computadores vai muito além de uma simples conexão de cabos e plac
 
 A placa de rede é o dispositivo responsável por permitir a conexão do computador com a rede — seja via cabo Ethernet ou por wireless.
 
-![Alt text](imgs/Ethernet_NIC_100Mbit_PCI.jpg)
+![Alt text](imgs/redes-sistemas/Ethernet_NIC_100Mbit_PCI.jpg)
 
 Ela possui 2 endereços: um físico e um lógico.
 
@@ -50,7 +50,7 @@ Ele é mantido na memória ROM, sendo posteriormente copiado para a memória RAM
 
 É o equipamento que tem a função de concentrar os cabos — de acordo com seu número de entradas. Permite a conexão entre dispositivos através de cabos de par trançados e conectados entre si.
 
-![Alt text](imgs/Hub.jpg)
+![Alt text](imgs/redes-sistemas/Hub.jpg)
 
 Tem como principal objetivo aumentar o alcance de uma rede local por meio da regeneração de sinais, porém só recebe em uma única porta e transmite para as outras.
 
@@ -62,7 +62,7 @@ Caiu em decadência/desuso.
 
 É uma evolução do Hub. Seu grande diferencial em comparação ao seu antecessor é que: os dados recebido da máquina de origem somente são repassados para a máquina de destino. A rede não fica presa a um único computador no envio de informações.
 
-![Alt text](imgs/network-switches.jpg)
+![Alt text](imgs/redes-sistemas/network-switches.jpg)
 
 Eles são inteligentes, permitem fechar canais exclusivos de comunicação entre a máquina que está enviando e a que está recebendo — em unicast ou multicast.
 
@@ -76,7 +76,7 @@ Em suma, é semelhante a uma ponte com múltiplas porta, capaz de analisar dados
 
 Os roteadores são equipamentos que permitem interligar várias redes e escolher a melhor rota para que a informação chegue ao destino. Ele encaminha ou direciona pacotes de dados entre redes de computadores, geralmente funcionando como um ponte entre redes diferentes.
 
-![Alt text](<imgs/1 DSR250NA1Image LFront.png>)
+![Alt text](<imgs/redes-sistemas/1 DSR250NA1Image LFront.png>)
 
 Roteadores conectam redes diferentes; Switches segmentam a mesma rede.
 
@@ -86,7 +86,7 @@ Ele é o principal responsável por controlar o tráfego de internet.
 
 É o equipamento responsável pelo modulação e demodulação do sinal de internet. Ele converte os dígitos binários do computador em sinais analógicos: e também converte os sinais analógicos em dígitos binários.
 
-![Alt text](imgs/55ee1bc0-3a65-49d3-b919-d81f1765c78c.7f5ecc1c94e8c03f1bc88d739c9ad32f.webp)
+![Alt text](imgs/redes-sistemas/55ee1bc0-3a65-49d3-b919-d81f1765c78c.7f5ecc1c94e8c03f1bc88d739c9ad32f.webp)
 
 O Modem é um dispositivo de entrada/saída de dados que modula um sinal digital em um sinal analógico e desmodula o sinal analógico e converte para o sinal digital. Existem 3 tipos: acesso discado, ADSL e cabeado.
 
@@ -117,10 +117,10 @@ Cabo de cobre dividido em 8 fios, cada um com uma responsável específica.
 São divididos em categorias que determinam  velocidade de transmissão dos dados e o alcance em metros que o cabo pode suportar sem a perda de pacotes.
 
 ***UTP ↓***
-![Alt text](imgs/UTP-CAT-5E-LH.jpg)
+![Alt text](imgs/redes-sistemas/UTP-CAT-5E-LH.jpg)
 
 ***STP ↓***
-![Alt text](imgs/STP-Cable.jpg)
+![Alt text](imgs/redes-sistemas/STP-Cable.jpg)
 
 A grande diferença entre eles é que um tem isolamento e o outro não. A falta de isolamento pode causar muitos problemas, como interferências e danos.
 
@@ -128,17 +128,17 @@ A grande diferença entre eles é que um tem isolamento e o outro não. A falta 
 
 Cabo de fios de cobre, tendo um fio central responsável como condutor do pulso elétrico, malha metálica realizando isolamento e uma blindagem plástica contra interferências externas.
 
-![Alt text](imgs/rg59-cabo-coaxial-75-ohm-preco-por-metro-rg59.jpg)
+![Alt text](imgs/redes-sistemas/rg59-cabo-coaxial-75-ohm-preco-por-metro-rg59.jpg)
 
 **Fibra ótica**
 
 Tecnologia guiada por cabo que oferece a maior velocidade de transmissão de dados. A fibra é composta por pedaços de vidro que permitem a propagação dos raios de luz que são convertidos por conversores das fibras.
 
-![Alt text](imgs/fibra-%C3%B3tica-estrutura.png)
+![Alt text](imgs/redes-sistemas/fibra-%C3%B3tica-estrutura.png)
 
 Por ser luz, sua velocidade chega na casa dos Gbps, algo muito maior do que os outros cabos podem alcançar.
 
-![Alt text](imgs/fibra-%C3%B3tica-luz.png)
+![Alt text](imgs/redes-sistemas/fibra-%C3%B3tica-luz.png)
 
 A conexão feita entra continentes usa a fibra ótica, essa conexão é chamada de backbone.
 
@@ -146,43 +146,43 @@ A conexão feita entra continentes usa a fibra ótica, essa conexão é chamada 
 
 O rack é um armário para hospedar os equipamentos de hardware, como switches, roteadores, modens e fibra ótica. Ele também serve para organizar os cabos em patch panels.
 
-![Alt text](imgs/racks-of-servers.jpg)
+![Alt text](imgs/redes-sistemas/racks-of-servers.jpg)
 
 É essencial em data centers e infraestruturas de redes.
 
 ## Modelo OSI e TCP/IP
 
-![Alt text](imgs/2911722148_b705ac15d9_o.png)
+![Alt text](imgs/redes-sistemas/2911722148_b705ac15d9_o.png)
 
 ***Aplicação ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-finalv1-8-ct-089b2573bf47462d85f9343f50329f72.webp)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-finalv1-8-ct-089b2573bf47462d85f9343f50329f72.webp)
 
 ***Apresentação ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-finalv1-7-ct-e102db1b79da4926b510f944183989f8.webp)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-finalv1-7-ct-e102db1b79da4926b510f944183989f8.webp)
 
 ***Sessão ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-finalv1-6-ct-f21bdae22e54415b881d77babe8ca51d.webp)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-finalv1-6-ct-f21bdae22e54415b881d77babe8ca51d.webp)
 
 ***Transporte ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-final-5-ct-373fc5a9edc74359819021555f37467d.webp)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-final-5-ct-373fc5a9edc74359819021555f37467d.webp)
 
 ***Rede/Network ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-finalv1-4-ct-9ffde2c7142849819c3fcf5e305a242f.webp)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-finalv1-4-ct-9ffde2c7142849819c3fcf5e305a242f.webp)
 
 ***Enlace/Data link ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-finalv1-3-ct-9d3e1bf44a554e3db31f706201fc69f6.webp)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-finalv1-3-ct-9d3e1bf44a554e3db31f706201fc69f6.webp)
 
 ***Físico ↓***
 
-![Alt text](imgs/layers-of-the-osi-model-illustrated-818017-finalv1-2-ct-ed94d33e885a41748071ca15289605c9.png)
+![Alt text](imgs/redes-sistemas/layers-of-the-osi-model-illustrated-818017-finalv1-2-ct-ed94d33e885a41748071ca15289605c9.png)
 
-![Alt text](<imgs/TCPIP Diagram.jpg>)
+![Alt text](<imgs/redes-sistemas/TCPIP Diagram.jpg>)
 
 ## IPV4 e IPV6
 
@@ -194,13 +194,13 @@ Atualmente existem 2 formatos: PPV4 e IPV6.
 
 Formato de 32 bits dividido em 8 octetos onde cada octeto pode variar em 255.
 
-![Alt text](imgs/ipv41.jpg)
+![Alt text](imgs/redes-sistemas/ipv41.jpg)
 
 ***IPV6 ↓***
 
 Formato de 128 bits dividido em 16 pares.
 
-![Alt text](imgs/IPv4-vs-IPv6.png)
+![Alt text](imgs/redes-sistemas/IPv4-vs-IPv6.png)
 
 ## Cálculo de Sub Rede
 
@@ -208,7 +208,7 @@ A ideia da sub net ou sub rede é segmentar uma rede grande em redes menores, pe
 
 **Classes de endereço de IP**
 
-![Alt text](imgs/ipv4-lan-mask.png)
+![Alt text](imgs/redes-sistemas/ipv4-lan-mask.png)
 
 Dividido em 5 classes, cada uma com um nicho específico. Esses nichos basicamente se dividem pela quantidade de dispositivos que a rede suporta:
 
@@ -227,17 +227,17 @@ Quanto maior o número de redes (sub redes), menor é disponível o número de e
 
 Para fazer o cálculo de endereço de IP para sua forma binária é necessário dividir cada octeto pelo resultado da base, que é a base 2 de expoentes 0 a 7, retornando: 1, 2, 4, 8, 16, 32, 64 e 128. 
 
-![Alt text](imgs/exemplo-endere%C3%A7o-bin%C3%A1rio.png)
+![Alt text](imgs/redes-sistemas/exemplo-endere%C3%A7o-bin%C3%A1rio.png)
 
 Fórmula hosts de redes: $2^b-2$ 
 
-![Alt text](imgs/maxresdefault.jpg)
+![Alt text](imgs/redes-sistemas/maxresdefault.jpg)
 
 ## Domínios, DNS e Latência
 
 O servidor raiz recebe a requisição de um domínio e vai de, nível a nível, encaminhando para os próximos domínios e servidores até chegar ao servidor de destino.
 
-![Alt text](imgs/dns.webp)
+![Alt text](imgs/redes-sistemas/dns.webp)
 
 Sobre latência, ela é o tempo de requisição da origem até o destino. Uma latência mínima é uma conexão muito rápida, já latências maiores podem ocasionar problemas de lentidão no sistema.
 
