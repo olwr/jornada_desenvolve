@@ -29,8 +29,8 @@
 - [x] Semana 12: JavaScript e validação de formulários
 - [x] Semana 13: Figma
 - [x] Semana 14: Design System
-- [ ] Semana 15: PostgreSQL consultas, views e funções
-- [ ] Semana 16: PostgreSQL comandos DML/DDL e MongoDB 
+- [x] Semana 15: PostgreSQL consultas, views e funções
+- [x] Semana 16: PostgreSQL comandos DML/DDL e MongoDB 
 - [ ] Semana 17: Node.js API Rest com Express e MongoDB
 - [ ] Semana 18: Node.js testes unitários, de integração e em uma API Rest
 - [ ] Semana 19: Node.js criptografia, tokens JWT e criando uma API Rest
