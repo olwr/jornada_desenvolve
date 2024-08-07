@@ -16,6 +16,8 @@
     - [Miscellaneous Operators](#miscellaneous-operators)
     - [Operadores de Update](#operadores-de-update)
     - [Aggregation](#aggregation)
+  - [Modelagem de Dados](#modelagem-de-dados)
+    - [Embedding vs. Referencing](#embedding-vs-referencing)
 
 ## Banco de Dados Orientado a Documentos
 
@@ -1005,3 +1007,13 @@ db.posts.aggregate([
 | `$max`          | returns the highest expression value for each group                             |
 | `$min`          | returns the lowest expression value for each group                              |
 | `$mergeObjects` | returns a document created by combining the input documents for each group      |
+
+## Modelagem de Dados
+
+> https://www.mongodb.com/docs/manual/data-modeling/
+>
+> https://www.mongodb.com/docs/manual/applications/data-models-relationships/
+>
+> https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design
+
+### Embedding vs. Referencing

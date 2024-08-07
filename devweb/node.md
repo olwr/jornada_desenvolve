@@ -65,7 +65,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-O comando `nvm ls-remote` lista todas as ver~soe s do Node.JS, e para fazer download de uma ver~so específica é só usar o comando `nvm instal`. O comando `nvm use` é o que altera entre as versões de forma simples.
+O comando `nvm ls-remote` lista todas as versões do Node.JS, e para fazer download de uma versão específica é só usar o comando `nvm instal`. O comando `nvm use` é o que altera entre as versões de forma simples.
 
 ```bash
 $ nvm use 16
@@ -173,7 +173,7 @@ Existem muitas coisas acontecendo aqui:
 
 - `name`
   - define o nome do pacote
-  - deve ser menor que 214 caracteres, não pode ter espaços e somente pode conter letras minúsculas, hífens (-) ou underscore (_)
+  - deve ser menor que 214 caracteres, não pode ter espaços e somente pode conter letras minúsculas, hifens (-) ou underscore (_)
   - caso o pacote seja publicado, ele ganha sua URL baseado nesta propriedade
 
 ```json

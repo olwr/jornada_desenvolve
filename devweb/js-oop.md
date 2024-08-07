@@ -263,9 +263,7 @@ class ClassName {
 }
 ```
 
-É possível também adicionar métodos estáticos, ou seja, métodos que não são inicializados junto a uma nova instância, mas sim a partir da própria classe.
-
-Métodos não estáticos não só podem ser a partir de uma instância da classe; já os métodos estáticos só podem ser executados a partir da classe.
+É possível também adicionar métodos estáticos, ou seja, métodos que não são inicializados junto a uma nova instância, mas sim a partir da própria classe, não podem ser chamados pela instância. São geralmente usados para criar funções utilitárias.
 
 ```js
 class ClassName {
@@ -423,7 +421,7 @@ class ClassName {
 
 Com eles esses atributos são acessados como propriedades, não como funções. Por este motivo, getters e setters sempre recebem como nome o mesmo da propriedade que estão acessando.
 
-Eles podem ser usados também para atributos públicos, e é até algo recomendo, por terem uma sintaxe simples, bom manejo de dados e ser útil para interações no código.
+Eles podem ser usados também para atributos públicos, e é até algo recomendado, por terem uma sintaxe simples, bom manejo de dados e ser útil para interações no código.
 
 ## SOLID
 

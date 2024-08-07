@@ -121,7 +121,7 @@ Depois de importar os recursos para o seu script, é possível usá-los exatamen
 Os recursos podem ser renomados na importação, recebendo um alias que pode ser usado nas interações com o recurso dentro do arquivo em que foi importado.
 
 ```js
-import resourceName as resourceAlias from './modules/file.js';
+import { resourceName as resourceAlias } from './modules/file.js';
 ```
 
 A importação de recursos de exportações padrão pode ser feita de duas maneiras:
@@ -130,6 +130,12 @@ A importação de recursos de exportações padrão pode ser feita de duas manei
 import resourceName from './modules/file.js';
 // or
 import {default as resourceAlias} from './modules/file.js';
+```
+
+Para recursos importados de um export default, ele pode ser renomeado diretamente:
+
+```js
+import alias from './modules/file.js';
 ```
 
 É possível também importar os recursos do módulo dentro de um objeto de módulo. Isso captura todas as exportações do módulo importado e as deixa disponíveis como membros de um objeto, sendo acessados pelo dot notation:

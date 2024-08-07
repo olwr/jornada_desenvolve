@@ -49,3 +49,4 @@
 - [x] Fokus → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-fokus)
 - [x] Vidflow → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-vidflow)
 - [x] MoniBank → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-monibank)
+- [x] Livraria (API Rest) → [![repo](https://img.shields.io/badge/repo-teal?style=plastic&logo=github&logoColor=008080&labelColor=white)](https://github.com/olwr/desenvolve-24-api-rest)

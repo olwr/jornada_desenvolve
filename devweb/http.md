@@ -8,6 +8,9 @@
   - [Fluxo HTTP](#fluxo-http)
       - [HTTP/2](#http2)
     - [Mensagens](#mensagens)
+  - [Métodos](#métodos)
+    - [Características Comuns](#características-comuns)
+  - [Idempotente](#idempotente)
   - [Recursos, URLs e URIs](#recursos-urls-e-uris)
     - [Media Types](#media-types)
   - [Status](#status)
@@ -233,6 +236,175 @@ Consistem nos seguintes elementos:
 
 ![alt text](imgs/server/HTTP_ResponseMessageExample.png)
 
+## Métodos
+
+As requisições HTTP são as ações iniciadas de um cliente-servidor para executar certas ações. Estes métodos de requisição são, por vezes, chamadas de substantivos ou verbos HTTP. Dentre eles, 9 métodos são tipicamente associados com o desenvolvimento web RESTful.
+
+Cada um deles é implementado com uma semântica diferente, mas funcionalidades comuns são compartilhadas entre este grupo: seguro, idempotente e cacheable (armazenável em cache).
+
+**GET ↓**
+
+O de uso mais comum entre todos os métodos. É usado para obter os recursos desejados do servidor; não afeta o estado do servidor. Solicita os seguintes recursos:
+
+- webpage ou arquivo HTML
+- imagem ou vídeo
+- documento JSON
+- arquivo CSS ou arquivo JavaScript
+- arquivo XML
+
+**POST ↓**
+
+É usado para submeter informações no servidor. Quando dados são submetidos, este método geralmente afeta o estado do servidor. Geralmente, os dados enviados são:
+
+- Campos de inputs de um formulário
+- Dados XML ou JSON
+- Dados textuais de parâmetros de consulta
+
+A especificação HTTP permite que o desenvolvedor decida o tipo de processamento dos dados enviados por meio de um método HTTP POST. Os usos prototípicos do método POST incluem o seguinte:
+
+- Publique uma mensagem em um quadro de avisos
+- Salve dados de formulários HTML em um banco de dados
+- Calcule um resultado com base nos dados enviados
+
+**PUT ↓**
+
+Este método é usado para substituir completamente um recurso identificado com uma determinada URL. O método de solicitação HTTP `PUT` inclui duas regras: 
+
+- Uma operação `PUT` sempre inclui uma carga que descreve uma definição de recurso completamente nova a ser salva pelo servidor. 
+- A operação `PUT` usa a URL exata do recurso de destino. 
+ 
+Se um recurso existir na URL fornecida por uma operação `PUT`, a representação do recurso será completamente substituída. Se um recurso não existir nessa URL, um novo recurso será criado. A carga útil de uma operação `PUT` pode ser qualquer coisa que o servidor entenda, embora JSON e XML sejam os formatos de troca de dados mais comuns para webservices e microsserviços RESTful.
+
+**PATCH ↓**
+
+Este método é usado para modificar somente a parte necessária de um dado ou resposta. Não modifica toda a resposta. 
+
+Às vezes, as representações de objetos ficam muito grandes. O requisito para que uma operação `PUT` sempre envie uma representação completa de recursos para o servidor será um desperdício se apenas uma pequena alteração for necessária em um recurso grande. 
+
+O método `PATCH`, adicionado ao Hypertext Transfer Protocol de forma independente como parte do RFC 5789, permite atualizações de recursos existentes. É significativamente mais eficiente, por exemplo, enviar uma pequena carga útil em vez de uma representação completa de recursos para o servidor.
+
+**HEAD ↓**
+
+O servidor envia a resposta sem o corpo, ou seja, simplesmente retorna metadados sobre um recurso no servidor. O método solicita por uma resposta idêntica as solicitações `GET`, mas com performance mais rápida já que menos dados são transferidos.  
+
+Esse método de solicitação HTTP retorna todos os cabeçalhos associados a um recurso em uma determinada URL, mas não retorna o recurso. É comumente usado para verificar as seguintes condições: 
+
+- O tamanho de um recurso no servidor. 
+- Se existe um recurso no servidor ou não. 
+- A data da última modificação de um recurso. 
+- Validade de um recurso armazenado em cache no servidor. 
+
+```http
+HTTP/1.1 200 OK 
+Date: Fri, 19 Aug 2023 12:00:00 GMT 
+Content-Type: text/html 
+Content-Length: 1234 
+Last-Modified: Thu, 18 Aug 2023 15:30:00 GMT
+```
+
+**DELETE ↓**
+
+Solicita a remoção de um recurso específico. Solicita que o server original delete o recurso identificado na requisição.
+
+**CONNECT ↓**
+
+Estabelece uma comunicação bidirecional entre o cliente e o recurso solicitado, ou seja, é usada para criar uma conexão com um recurso do lado do servidor.
+
+O destino mais comum do método HTTP `CONNECT` é um servidor proxy, que um cliente deve acessar para sair da rede local. Os designers de API RESTful raramente interagem com este método.
+
+**OPTIONS ↓**
+
+Este método é usado para descrever as opções de comunicação disponíveis para o recurso de destino. O cliente pode especificar uma URL para descrever as opções de comunicação disponíveis para um recurso específico ou um asterisco (*) se quiser direcionar ao servidor.
+
+```http
+OPTIONS /example/resource HTTP/1.1 
+Host: www.example.com HTTP/1.1 200 OK 
+Allow: GET, POST, DELETE, HEAD, OPTIONS 
+Access-Control-Allow-Origin: * 
+Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS 
+Access-Control-Allow-Headers: Authorization, Content-Type
+```
+
+**TRACE ↓**
+
+Geralmente, é usado para diagnóstico, depuração e solução de problemas. Ele executa um teste de loopback de mensagem ao longo do caminho para os dados desejados, ou seja, retorna um rastreamento de diagnóstico que registra dados do ciclo de solicitação-resposta. 
+
+O conteúdo de um rastreamento geralmente é apenas um eco do servidor dos vários cabeçalhos de solicitação que o cliente enviou.
+
+### Características Comuns
+
+| Method    | Safe | Idempotent |
+| --------- | ---- | ---------- |
+| `GET`     | Yes  | Yes        |
+| `POST`    | No   | No         |
+| `PUT`     | No   | Yes        |
+| `PATCH`   | No   | No         |
+| `DELETE`  | No   | Yes        |
+| `TRACE`   | Yes  | Yes        |
+| `HEAD`    | Yes  | Yes        |
+| `OPTIONS` | YES  | Yes        |
+| `CONNECT` | No   | No         |
+
+![alt text](imgs/server/safe-vs-idempotent.png)
+
+**Safe ↓**
+
+É seguro quando não afeta o estado do servidor. Os métodos seguros solicitam ao servidor o envio de dados sem executar qualquer modificação aos dados originais. Portanto, Portanto, os métodos seguros realizam operações read-only.
+
+Mesmo que sejam operações read-only, às vezes causam uma alteração no estado do servidor; O servidor pode atualizar suas estatísticas. Uma coisa a notar aqui é que os métodos seguros nunca solicitam que o servidor altere seu estado.
+
+**Idempotent ↓**
+
+Não causam efeitos secundários ao server. É possível chamá-los em sequência e garantir que isso não irá afetar o estado do server (exceto para suas estatísticas). Todos os métodos idempotentes são seguros, mas nem todos os métodos seguros são idempotentes.
+
+Para ser um método idempotente, apenas o estado do servidor importa, não o código retornado por ele. Portanto, o método `DELETE` é idempotente, mas não seguro. Outra coisa a ser observada aqui é que o lado do cliente garante a validação da idempotência. A base de código incorreta pode quebrar a restrição idempotente.
+
+**Cacheable ↓**
+
+São os métodos possíveis de armazenar sua resposta em cache para uso posterior.
+
+No entanto, existem algumas restrições: 
+
+- O método deve ser armazenável em cache. 
+  - Somente os métodos `GET` e `HEAD` podem ser armazenados em cache. 
+- `PUT` e `PATCH` podem ser armazenados em cache se o cabeçalho `Content-Location` estiver definido. 
+- Apenas alguns códigos de status podem ser armazenados em cache: 
+  - 200, 203, 204, 206, 300, 301, 404, 405, 410, 414 e 501. 
+- Cabeçalhos como `Cache-Control` podem ser usados para evitar o armazenamento em cache.
+
+## Idempotente
+
+Um método HTTP é idempotente se uma requisição idêntica pode ser feita uma ou mais vezes em sequência com o mesmo efeito enquanto deixa o servidor no mesmo estado. Em outras palavras, não deve possuir nenhum efeito colateral (exceto para manter estatísticas). Implementados corretamente, o `GET`, `HEAD`, `PUT`, e `DELETE` são métodos idempotentes, mas não o método `POST`. Todos os métodos seguros também são idempotentes.
+
+Para ser idempotente, somente o estado atual do back-end de um servidor deve ser considerado, o código de status retornado por cada requisição pode variar: a primeira chamada de um `DELETE` vai provavelmente retornar um 200, enquanto as chamadas sucessivas vão provavelmente retornar 404. Outra implicação do `DELETE` ser idempotente é de que os desenvolvedores não deveriam implementar APIs REST com a funcionalidade de deleção de última entrada usando o método `DELETE`.
+
+A idempotência de um método não é garantida pelo servidor, algumas aplicações também podem quebrar a constante de idempotência. 
+
+**Idempotente:**
+
+```http
+GET /pageX HTTP/1.1
+GET /pageX HTTP/1.1
+GET /pageX HTTP/1.1
+GET /pageX HTTP/1.1
+```
+
+```http
+DELETE /idX/delete HTTP/1.1   → Retorna 200 se idX existe
+DELETE /idX/delete HTTP/1.1   → Retorna 404 como ele acabou de ser deletado
+DELETE /idX/delete HTTP/1.1   → Retorna 404
+```
+
+**Não idempotente:**
+
+```http
+POST /add_row HTTP/1.1
+POST /add_row HTTP/1.1   → Adiciona a 2ª linha
+POST /add_row HTTP/1.1   → Adiciona a 3ª linha
+```
+
+![alt text](imgs/server/HTTP-status-codes.jpg)
+
 ## Recursos, URLs e URIs
 
 O endereço de um site é o que se entende como Uniform Resource Locator. Ela representa um recurso específico na web, estes recursos sendo elementos com os quais se quer interagir, tais como: imagens, páginas, arquivos, e vídeos.
@@ -243,9 +415,9 @@ Uma URL pode ser quebrada em 3 partes:
 
 **URL Scheme ↓**
 
-`http`, a parte antes de "://" é o que se entende como esquema da URL. Ele descreve como acessar um recurso em particular, sendo nesse caso, o que está falando para o navegador usar o protocolo HTTP.
+`http`, a parte antes de ": //" é o que se entende como esquema da URL. Ele descreve como acessar um recurso em particular, sendo nesse caso, o que está falando para o navegador usar o protocolo HTTP.
 
-Existem outros esquemas, tais como: https, TCP, FTP, mailto. Tudo que vier depois de "://" é específico do protocolo que estiver sendo utilizado.
+Existem outros esquemas, tais como: https, TCP, FTP, mailto. Tudo que vier depois de ": //" é específico do protocolo que estiver sendo utilizado.
 
 **Host ↓**
 
@@ -280,6 +452,16 @@ Resumidamente, uma url pode ser quebrada então no seguinte formato:
 ```
 {esquema]://[servidor]:[porta]/[caminho]?[querystring]#[fragmento]
 ```
+
+**URI ↓**
+
+Toda URL é uma URI, mas o contrário não é verdadeiro.
+
+O Uniform Resource Identifier é uma cadeia de caracteres compacta usada para identificar ou denominar um recurso na Internet. O principal propósito desta identificação é permitir a interação com representações do recurso através de uma rede, tipicamente a Rede Mundial, usando protocolos específicos. URIs são identificados em grupos definindo uma sintaxe específica e protocolos associados.
+
+É basicamente uma forma generalizada de denominar tanto URLs quanto URNs, porém, é raro usar o termo URNs, especialmente em programação. Podemos dizer que um URN é uma pessoa e um URL é um endereço completo.
+
+![alt text](imgs/server/HGWwt.png)
 
 ### Media Types
 
