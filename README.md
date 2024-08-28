@@ -12,7 +12,13 @@
 ![lang: html](https://img.shields.io/badge/lang.-html-darkorange?style=plastic&logo=html5&logoColor=FF8C00&labelColor=white)
 ![lang: css](https://img.shields.io/badge/lang.-css-royalblue?style=plastic&logo=css3&logoColor=4169E1&labelColor=white)
 ![lang: javascript](https://img.shields.io/badge/lang.-javascript-gold?style=plastic&logo=javascript&logoColor=FFD700&labelColor=191919)
-![environment: node.js](https://img.shields.io/badge/environment-node.js-seagreen?style=plastic&logo=node.js&logoColor=3CB371&label=environment&labelColor=212121&color=3CB371)
+![db: mongodb](https://img.shields.io/badge/db.-mongodb-darkslategray?style=plastic&logo=mongodb&logoColor=32CD32&labelColor=white)
+![environment: node.js](https://img.shields.io/badge/environment-node.js-seagreen?style=plastic&logo=node.js&logoColor=3CB371&labelColor=212121)
+![tech: docker](https://img.shields.io/badge/-docker-firebrick?style=plastic&logo=docker&logoColor=00CED1&labelColor=191919)
+![devops: ci/cd](https://img.shields.io/badge/devops.-ci/cd-ivory?style=plastic&labelColor=191919)
+![architecture: microservices](https://img.shields.io/badge/architecture-microservices-linen?style=plastic&&labelColor=191919)
+![tools: figma](https://img.shields.io/badge/tool-figma-lavender?style=plastic&logo=figma&logoColor=DA70D6&labelColor=212121)
+![tools: github actions](https://img.shields.io/badge/tool-github_actions-ivory?style=plastic&logo=githubactions&logoColor=DCDCDC&labelColor=212121)
 ![lang: markdown](https://img.shields.io/badge/lang.-markdown-black?style=plastic&logo=markdown&logoColor=191919&labelColor=white)
 
 ## <picture><source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f331/512.webp" type="image/webp"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f331/512.gif" alt="🌱" width="32" height="32"></picture> Trilha DevWeb
